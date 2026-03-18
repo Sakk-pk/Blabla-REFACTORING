@@ -1,3 +1,5 @@
+import 'package:blabla/repositories/location/location_repository_mock.dart';
+
 import '../../../ui/widgets/buttons/bla_button.dart';
 import '../../../ui/widgets/display/bla_divider.dart';
 import 'package:flutter/material.dart';
@@ -80,7 +82,10 @@ class _BlaRidePreferencePickerState extends State<BlaRidePreferencePicker> {
     // 1- Select a location
     Location? selectedLocation = await Navigator.of(context).push<Location>(
       AnimationUtils.createBottomToTopRoute(
-        BlaLocationPicker(initLocation: departure),
+        BlaLocationPicker(
+          initLocation: null,
+          repository: LocationsRepositoryMock(),
+        )
       ),
     );
 
@@ -96,7 +101,10 @@ class _BlaRidePreferencePickerState extends State<BlaRidePreferencePicker> {
     // 1- Select a arrival
     Location? selectedLocation = await Navigator.of(context).push<Location>(
       AnimationUtils.createBottomToTopRoute(
-        BlaLocationPicker(initLocation: arrival),
+       BlaLocationPicker(
+          initLocation: null,
+          repository: LocationsRepositoryMock(),
+        )
       ),
     );
 
